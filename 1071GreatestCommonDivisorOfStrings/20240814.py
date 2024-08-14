@@ -29,10 +29,29 @@ class Solution:
     #             common_divisors.append(i)
     #     print(common_divisors)
     #     return common_divisors
+
+from math import gcd
+
+
+class SolutionV2:
+    def gcdOfStrings(self, str1: str, str2: str) -> str:
+        gcd_value = gcd(len(str1), len(str2))
+        result = str1[:gcd_value]
+        flag1, flag2 = True, True
+        for j in range(0, len(str1), gcd_value):
+            if str1[j:j+gcd_value] != result:
+                flag1 = False
+        for j in range(0, len(str2), gcd_value):
+            if str2[j:j+gcd_value] != result:
+                flag2 = False
+        if flag1 and flag2:
+            return result
+        return ""
     
 class TestSolution(unittest.TestCase):
     def setUp(self):
         self.sol = Solution()
+        # self.sol = SolutionV2()
 
     def test_case1(self):
         self.assertEqual(self.sol.gcdOfStrings("ABCABC", "ABC"), "ABC")
