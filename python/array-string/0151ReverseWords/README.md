@@ -17,6 +17,5 @@
         return ' '.join(s.split()[::-1])
     ```
     - **Details**:
-        - `[::-1]`: Reverses the list of words.
+        - `[::-1]`: Reverses the list of words. `sequence[start:stop:step]`
         - `' '.join(...)`: Joins the reversed list into a single string with words separated by a single space.
-        
